@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-from django.conf import settings
-from django.conf.urls.static import static
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -125,13 +123,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_URL_PHOTO = '/media/Photo'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-urlpatterns = [
-    # Project url patterns...
-]
+MEDIA_ROOT_PHOTO = os.path.join(BASE_DIR, 'media/Photo')
 
 
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.MEDIA_URL_PHOTO, document_root=settings.MEDIA_ROOT)
