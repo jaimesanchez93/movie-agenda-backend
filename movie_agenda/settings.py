@@ -11,9 +11,14 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+
+from movie_agenda.settings_private import SECRET_KEY
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
+SECRET_KEY
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -23,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', 'localhost']
 
 
 # Application definition
@@ -36,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'movies',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
+
 ]
 
 MIDDLEWARE = [
@@ -47,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'movie_agenda.urls'
@@ -68,6 +77,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'movie_agenda.wsgi.application'
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Database

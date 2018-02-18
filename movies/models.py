@@ -26,3 +26,6 @@ class Movie(models.Model):
     image_url = models.URLField(blank=True)
     movie_seen = models.BooleanField(default=False)
     duration = models.IntegerField(blank=True,default="")
+
+    def __str__(self):
+        return self.name
