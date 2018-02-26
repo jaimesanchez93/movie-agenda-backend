@@ -79,5 +79,7 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
+movie_agenda/settings_private.py
+
 
 # End of https://www.gitignore.io/api/django,pycharm
