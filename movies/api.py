@@ -13,7 +13,7 @@ class MovieListAPI(APIView):
 
 
     def post(self,request):
-        serializer = MovieSerializer(data=request.POST)
+        serializer = MovieSerializer(data=request.data)
         if serializer.is_valid():
             new_movie = serializer.save()
             return Response(serializer.data,status.HTTP_201_CREATED)
