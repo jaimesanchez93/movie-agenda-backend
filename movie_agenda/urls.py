@@ -19,11 +19,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include, url
-from movies.api import MovieListAPI
+from movies.api import MovieListAPI, MovieDetailAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/1.0/movies',MovieListAPI.as_view())
+    path('api/1.0/movies',MovieListAPI.as_view()),
+    path('api/1.0/movies/<int:id>/',MovieDetailAPI.as_view())
+    #path('<int:question_id>/',MovieDetailAPI.get)
 ]
 
 if settings.DEBUG:
